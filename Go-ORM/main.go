@@ -18,7 +18,7 @@ func handleRequests() {
 
 	myRouter.HandleFunc("/", HelloWorld).Methods("GET")
 	myRouter.HandleFunc("/users", AllUsers).Methods("GET")
-	myRouter.HandleFunc("/users/{name}/{emain}", NewUser).Methods("POST")
+	myRouter.HandleFunc("/users/{name}/{email}", NewUser).Methods("POST")
 	myRouter.HandleFunc("/users/{name}", DeleteUser).Methods("DELETE")
 	myRouter.HandleFunc("/users/{name}/{email}", UpdateUser).Methods("PUT")
 
@@ -26,6 +26,8 @@ func handleRequests() {
 }
 
 func main() {
+	InitialMigration()
+
 	handleRequests()
 	//**** 2 ******
 	//https://www.youtube.com/watch?v=VAGodyl84OY
